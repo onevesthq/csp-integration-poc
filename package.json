@@ -1,0 +1,14 @@
+{
+  "name": "csp-integration-poc",
+  "source": "./src/index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "packageManager": "yarn@4.2.2",
+  "devDependencies": {
+    "@parcel/core": "^2.14.4",
+    "parcel": "^2.14.4"
+  }
+}
