@@ -19,12 +19,25 @@
     <div class="row g-0">
         <div class="col-md-6">
             <div class="leftside d-flex justify-content-center align-items-center">
-                <h3>CSP With Dynamic <a href="#">Nonce</a></h3>
+                <div class="m-5">
+                    <h3>CSP With <a target="_blank" href="https://content-security-policy.com/nonce/">Nonce</a></h3>
+                    <p>Inspect the response headers, then view source to confirm nonce is in effect.</p>
+                </div>
             </div>
         </div>
         <div class="col-md-6">
             <div class="rightside d-flex justify-content-center align-items-center">
-                <h3>CSP With Script <a href="#">Hash</a></h3>
+                <div class="m-5">
+                    <h4>pros/cons of using a nonce</h4>
+                    <ul>
+                        <li>👍 The nonce is considered small so the header size is not really impacted</li>
+                        <li>👍 When you change the content of the script, you don't need to change your nonce logic</li>
+                        <li><hr class="bg-danger border-2 border-top border-danger" /></li>
+                        <li>👎 The nonce needs to be generated dynamically, and must be different for each request that serves the initial HTML, so you need to generate the CSP header programmatically. This can be a challenge.</li>
+                        <li>👎 Since the resulting HTML document changes every time with a nonce, it cannot be cached</li>
+                        <li>👎 When using a nonce (instead of a <a target="_blank" href="https://content-security-policy.com/hash/">hash</a>) for CSP, the header cannot be defined statically in the server/configuration</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
