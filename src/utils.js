@@ -1,15 +1,29 @@
-export const addExecutableScript = (srcURL) => {
-    const script = document.createElement('script');
-    script.src = srcURL;
-    document.body.appendChild(script);
+
+const addScriptAttributes = (script, attributes = {}) => {
+    const attrs = Object.keys(attributes);
+    if (!script || attrs.length === 0) return;
+
+    attrs.forEach((attr) => {
+        script.setAttribute(`${attr}`, attributes[attr]);
+    });
 };
 
-export const addScriptIsland = (attrs, payload) => {
+export const addExecutableScript = (srcURL, attrs = {}) => {
+    const script = document.createElement('script');
+    script.src = srcURL;
+    const { onload, ...otherAttrs } = attrs;
+    addScriptAttributes(script, otherAttrs);
+    document.body.appendChild(script);
+
+    if (onload && typeof onload === 'function') {
+        script.onload = onload;
+    }
+};
+
+export const addScriptIsland = (payload, attrs = {}) => {
     const script = document.createElement('script');
     script.type = 'application/json';
-    Object.keys(attrs).forEach((attribute) => {
-        script.setAttribute(`${attribute}`, attrs[attribute]);
-    });
+    addScriptAttributes(script, attrs);
 
     script.textContent = JSON.stringify(payload);
     document.body.appendChild(script);

@@ -1,14 +1,7 @@
 
-
 .leftside, .rightside {
     height: 50vh;
     width: 100%;
-}
-
-@media screen and (min-width: 768px) {
-    .leftside, .rightside {
-        height: 100vh;
-    }
 }
 
 .leftside, .with-nonce {
@@ -30,4 +23,22 @@ h3 + a {
 
 ul {
     list-style-type: none;
+}
+
+@media screen and (min-width: 768px) {
+    .leftside, .rightside {
+        height: 100vh;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .rightside {
+        font-size: small;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .rightside {
+        font-size: x-small;
+    }
 }
